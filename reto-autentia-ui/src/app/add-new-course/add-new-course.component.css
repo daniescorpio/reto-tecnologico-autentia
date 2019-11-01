@@ -1,0 +1,15 @@
+#teacherName, #teacherNameBox, #status, #cbStatus, #courseName, #courseNameBox, #level, #levelBox, #hours, #hoursBox {
+  display: inline;
+}
+
+h2 {
+  margin-right: 30px;
+}
+
+table {
+  border: 0px;
+}
+
+.newCourseStatus, .newCourseTeacher, .newCourseName, .newCourseLevel, .newCourseHours {
+  margin-left: 10px;
+}

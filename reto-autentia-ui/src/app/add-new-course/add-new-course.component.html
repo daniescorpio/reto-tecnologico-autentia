@@ -1,0 +1,35 @@
+<div *ngIf="this.dataService.showAddCourse">
+  <h1>Añadir curso</h1>
+  <table>
+    <tr class="newCourseStatus">
+      <td><h2 id="status">Activo</h2></td>
+      <td><input id="cbStatus" type="checkbox" [(ngModel)]="this.dataService.courseToAdd.isActive" [ngModelOptions]="{standalone: true}"></td>
+    </tr>
+    <tr class="newCourseTeacher">
+      <td><h2 id="teacherName">Profesor</h2></td>
+      <td><input id="teacherNameBox" type="text" [(ngModel)]="this.dataService.courseToAdd.teacher" [ngModelOptions]="{standalone: true}" placeholder="Profesor"></td>
+    </tr>
+    <tr>
+      <td><h2 id="courseName">Título</h2></td>
+      <td><input id="courseNameBox" type="text" [(ngModel)]="this.dataService.courseToAdd.name" [ngModelOptions]="{standalone: true}" placeholder="Título"></td>
+    </tr>
+    <tr class="newCourseLevel">
+      <td><h2 id="level">Nivel</h2></td>
+      <td>
+        <form>
+          <input list="levels" [(ngModel)]="this.dataService.courseToAdd.level" [ngModelOptions]="{standalone: true}" placeholder="Nivel">
+          <datalist id="levels">
+            <option value="Principiante">
+            <option value="Intermedio">
+            <option value="Avanzado">
+          </datalist>
+        </form>
+      </td>
+    </tr>
+    <tr class="newCourseHours">
+      <td><h2 id="hours">Horas</h2></td>
+      <td><input id="hoursBox" type="number" [(ngModel)]="this.dataService.courseToAdd.hours" [ngModelOptions]="{standalone: true}" placeholder="Horas"></td>
+    </tr>
+  </table>
+  <button type="button" name="button" (click) = "onAddCourse()">Añadir</button>
+</div>

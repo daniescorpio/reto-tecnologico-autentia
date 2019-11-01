@@ -1,0 +1,20 @@
+<div>
+  <h1>{{ title }}</h1>
+  <table id="courses">
+    <tr>
+      <th (click) = "onClickName()" *ngIf="orderByName">{{ nameOfCourseTHOrdered }}</th>
+      <th (click) = "onClickName()" *ngIf="!orderByName">{{ nameOfCourseTHNoOrder }}</th>
+      <th>Profesor</th>
+      <th>Nivel</th>
+      <th>Horas</th>
+    </tr>
+    <tr *ngFor="let course of this.dataService.courses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.teacher }}</td>
+      <td>{{ this.translateLevel(course.level) }}</td>
+      <td>{{ course.hours }}</td>
+    </tr>
+  </table>
+  <button type="button" name="addCourse" (click) = "onAddCourse()">Nuevo Curso</button>
+</div>
+<app-add-new-course></app-add-new-course>

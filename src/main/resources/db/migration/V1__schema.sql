@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS COURSE (
+    id BIGINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    isActive BOOL(1),
+    name VARCHAR(255) UNIQUE,
+    level VARCHAR(7),
+    hours INT,
+    teacher VARCHAR(255)
+)
