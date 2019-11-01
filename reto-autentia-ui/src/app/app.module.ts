@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CoursesCatalogComponent } from './courses-catalog/courses-catalog.component';
 import { FormsModule } from "@angular/forms";
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddNewCourseComponent } from './add-new-course/add-new-course.component
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

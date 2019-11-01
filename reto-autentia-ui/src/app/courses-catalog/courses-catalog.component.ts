@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from "../course";
 import { HttpClient } from '@angular/common/http';
 import { DataService } from "../data.service";
+import { COURSES } from "../mock-courses";
 
 @Component({
   selector: 'app-courses-catalog',
@@ -12,8 +13,11 @@ export class CoursesCatalogComponent implements OnInit {
 
   title = 'Catalogo de cursos';
 
+  items = COURSES;
+
   nameOfCourseTHNoOrder = 'Título';
-  nameOfCourseTHOrdered = 'Título ^';
+  nameOfCourseTHOrderedAsc = 'Título ▲';
+  nameOfCourseTHOrderedDesc = 'Título ▼';
 
   constructor(private httpClient: HttpClient, private dataService: DataService) { }
 
@@ -22,8 +26,14 @@ export class CoursesCatalogComponent implements OnInit {
   }
 
   onClickName(): void {
+    if (this.dataService.orderByName) {
+      this.dataService.courses.sort((a,b) => (a.name < b.name) ? 1 : -1);
+    }
+    else {
+      this.dataService.courses.sort((a,b) => (a.name > b.name) ? 1 : -1);
+    }
     this.dataService.orderByName = !this.dataService.orderByName;
-    this.dataService.getActiveCourses(this.dataService.orderByName);
+    // this.dataService.getActiveCourses(this.dataService.orderByName);
   }
 
   onAddCourse(): void {
@@ -35,5 +45,4 @@ export class CoursesCatalogComponent implements OnInit {
     if(level == 'MEDIUM') return 'Intermedio';
     if(level == 'ADVANCE') return 'Avanzado';
   }
-
 }

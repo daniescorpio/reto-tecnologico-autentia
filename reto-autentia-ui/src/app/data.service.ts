@@ -9,7 +9,7 @@ export class DataService {
 
   courses: any = null;
   courseToAdd = new Course();
-  orderByName = false;
+  orderByName = null;
   showAddCourse: boolean;
 
   constructor(private httpClient: HttpClient) { }

@@ -5,13 +5,13 @@
       <td><h2 id="status">Activo</h2></td>
       <td><input id="cbStatus" type="checkbox" [(ngModel)]="this.dataService.courseToAdd.isActive" [ngModelOptions]="{standalone: true}"></td>
     </tr>
-    <tr class="newCourseTeacher">
-      <td><h2 id="teacherName">Profesor</h2></td>
-      <td><input id="teacherNameBox" type="text" [(ngModel)]="this.dataService.courseToAdd.teacher" [ngModelOptions]="{standalone: true}" placeholder="Profesor"></td>
-    </tr>
     <tr>
       <td><h2 id="courseName">Título</h2></td>
       <td><input id="courseNameBox" type="text" [(ngModel)]="this.dataService.courseToAdd.name" [ngModelOptions]="{standalone: true}" placeholder="Título"></td>
+    </tr>
+    <tr class="newCourseTeacher">
+      <td><h2 id="teacherName">Profesor</h2></td>
+      <td><input id="teacherNameBox" type="text" [(ngModel)]="this.dataService.courseToAdd.teacher" [ngModelOptions]="{standalone: true}" placeholder="Profesor"></td>
     </tr>
     <tr class="newCourseLevel">
       <td><h2 id="level">Nivel</h2></td>

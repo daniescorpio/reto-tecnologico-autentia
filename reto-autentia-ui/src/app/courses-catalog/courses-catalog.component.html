@@ -2,19 +2,23 @@
   <h1>{{ title }}</h1>
   <table id="courses">
     <tr>
-      <th (click) = "onClickName()" *ngIf="orderByName">{{ nameOfCourseTHOrdered }}</th>
-      <th (click) = "onClickName()" *ngIf="!orderByName">{{ nameOfCourseTHNoOrder }}</th>
+      <th (click) = "onClickName(); p = 1" *ngIf="this.dataService.orderByName == null">{{ nameOfCourseTHNoOrder }}</th>
+      <th (click) = "onClickName(); p = 1" *ngIf="this.dataService.orderByName == true">{{ nameOfCourseTHOrderedAsc }}</th>
+      <th (click) = "onClickName(); p = 1" *ngIf="this.dataService.orderByName == false">{{ nameOfCourseTHOrderedDesc }}</th>
       <th>Profesor</th>
       <th>Nivel</th>
       <th>Horas</th>
     </tr>
-    <tr *ngFor="let course of this.dataService.courses">
+    <tr *ngFor="let course of this.dataService.courses | paginate:{itemsPerPage: 5, currentPage: p}">
       <td>{{ course.name }}</td>
       <td>{{ course.teacher }}</td>
       <td>{{ this.translateLevel(course.level) }}</td>
       <td>{{ course.hours }}</td>
     </tr>
   </table>
-  <button type="button" name="addCourse" (click) = "onAddCourse()">Nuevo Curso</button>
+  <div class="bottom">
+    <pagination-controls (pageChange) = "p=$event"></pagination-controls>
+    <button type="button" name="addCourse" (click) = "onAddCourse()">Nuevo Curso</button>
+  </div>
 </div>
 <app-add-new-course></app-add-new-course>
